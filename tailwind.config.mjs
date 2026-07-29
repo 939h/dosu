@@ -1,1 +1,13 @@
-export default {content:['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],theme:{extend:{colors:{brand:{50:'#eff6ff',100:'#dbeafe',500:'#2563eb',600:'#1d4ed8',900:'#172554'},ink:'#0f172a'},boxShadow:{soft:'0 20px 60px rgba(15,23,42,.08)'}}},plugins:[]};
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  theme: {
+    extend: {
+      colors: {
+        brand: { 50: '#fff4ed', 100: '#ffe0cc', 500: '#ff6a00', 600: '#f0441f', 900: '#7a1b10' },
+        ink: '#0b1118',
+      },
+      boxShadow: { soft: '0 24px 70px rgba(15,23,42,.10)' },
+    },
+  },
+  plugins: [],
+};

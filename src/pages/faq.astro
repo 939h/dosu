@@ -1,6 +1,85 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-const qs = ['Can myopia be cured?','How often should adults have an eye examination?','How often should children have their eyes checked?','Are blue light lenses necessary?','Can diabetes affect eyesight?','How long does an eye examination take?','How do progressive lenses work?','What is digital eye strain?','When should I replace my glasses?','Can contact lenses be worn every day?'];
-const jsonLd = {'@context':'https://schema.org','@type':'FAQPage',mainEntity:qs.map((q)=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:'The answer depends on age, symptoms, prescription, eye health, and daily visual demands. DOSU Optical can provide personalised guidance after assessment.'}}))};
+
+const faqs = [
+  {
+    question: 'Can myopia be cured?',
+    answer: 'Myopia usually cannot be permanently cured with glasses, but it can be corrected with spectacles or contact lenses so vision is clear. For children, myopia management may help slow progression depending on age, prescription, eye growth, and lifestyle factors.',
+  },
+  {
+    question: 'How often should adults have an eye examination?',
+    answer: 'Most adults should consider a routine eye examination every one to two years. You should come sooner if your vision changes, you get headaches, your glasses feel uncomfortable, or you have conditions such as diabetes, high blood pressure, or a family history of eye disease.',
+  },
+  {
+    question: 'How often should children have their eyes checked?',
+    answer: 'Children should be checked before starting school and then regularly as they grow, especially if they squint, sit very close to screens, complain of blurry vision, or have falling school performance. Children with myopia may need more frequent reviews to monitor progression.',
+  },
+  {
+    question: 'Are blue light lenses necessary?',
+    answer: 'Blue light lenses are not necessary for everyone, but some people find them more comfortable for long screen sessions. Good screen habits, suitable prescription power, proper lighting, and regular breaks are also important for reducing digital eye strain.',
+  },
+  {
+    question: 'Can diabetes affect eyesight?',
+    answer: 'Yes. Diabetes can cause prescription changes and may affect the retina over time. People with diabetes should have regular eye checks and should seek advice quickly if they notice sudden blur, floaters, distorted vision, or dark patches in vision.',
+  },
+  {
+    question: 'How long does an eye examination take?',
+    answer: 'A typical eye examination takes around 30 to 45 minutes, depending on your symptoms, prescription needs, and whether extra checks are required. Children, contact lens fittings, and detailed consultations may take longer.',
+  },
+  {
+    question: 'How do progressive lenses work?',
+    answer: 'Progressive lenses combine distance, intermediate, and near vision in one pair of glasses without visible segment lines. The lenses must be measured and fitted accurately, and most wearers need a short adaptation period to get used to the different viewing zones.',
+  },
+  {
+    question: 'What is digital eye strain?',
+    answer: 'Digital eye strain is discomfort from prolonged screen use. Common symptoms include tired eyes, dryness, headaches, blur, and neck or shoulder tension. It can be improved with the right prescription, screen distance, lighting adjustments, blinking, and regular breaks.',
+  },
+  {
+    question: 'When should I replace my glasses?',
+    answer: 'Replace your glasses when your prescription changes, vision is no longer clear, lenses are scratched, coatings are damaged, or the frame no longer fits properly. Even if your glasses feel fine, regular eye checks help confirm whether the prescription is still suitable.',
+  },
+  {
+    question: 'Can contact lenses be worn every day?',
+    answer: 'Many people can wear contact lenses daily if the lenses fit well and hygiene is good. Wear time depends on your eye health, tear condition, lens type, and lifestyle. Never sleep in lenses unless they are specifically prescribed for overnight wear.',
+  },
+  {
+    question: 'Is customer parking available?',
+    answer: 'Yes. DOSU Optical has a reserved customer parking lot, so you can visit for eye examinations, fittings, and eyewear collection with easier access.',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: answer,
+    },
+  })),
+};
 ---
-<BaseLayout title="Frequently Asked Questions" description="Answers to common questions about eye examinations, myopia, blue light lenses, diabetes and eyesight, progressive lenses, and contact lenses." path="/faq" jsonLd={[jsonLd]}><section class="section"><div class="container max-w-4xl"><p class="eyebrow">FAQ</p><h1 class="mt-3 text-5xl font-bold">Eye care questions, answered directly</h1><div class="mt-10 space-y-4">{qs.map((q)=><details class="card"><summary class="cursor-pointer font-semibold">{q}</summary><p class="mt-3">This topic should be assessed based on your history, symptoms, and visual needs. If you are unsure, schedule a professional eye examination.</p></details>)}</div></div></section></BaseLayout>
+<BaseLayout title="Frequently Asked Questions" description="Answers to common questions about eye examinations, myopia, blue light lenses, diabetes and eyesight, progressive lenses, and contact lenses." path="/faq" jsonLd={[jsonLd]}>
+  <section class="section">
+    <div class="container max-w-4xl">
+      <p class="eyebrow">FAQ</p>
+      <h1 class="mt-3 text-5xl font-black tracking-[-0.04em]">Eye care questions, answered directly</h1>
+      <p class="mt-5 text-lg font-semibold leading-8 text-slate-600">Practical answers for common optical questions. For personalised advice, book an eye examination with DOSU Optical.</p>
+      <div class="mt-10 space-y-4">
+        {faqs.map(({ question, answer }) => (
+          <details class="card group">
+            <summary class="cursor-pointer list-none text-lg font-black text-slate-950">
+              <span class="inline-flex w-full items-center justify-between gap-4">
+                {question}
+                <span class="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand-100 text-brand-600 transition group-open:rotate-45">+</span>
+              </span>
+            </summary>
+            <p class="mt-4 leading-7 text-slate-600">{answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

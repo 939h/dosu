@@ -1,0 +1,10 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { services, site } from '@/data/site';
+export function getStaticPaths(){return services.map((s)=>({params:{slug:s.slug},props:{service:s}}));}
+const { service } = Astro.props;
+const faqs = ['Who is this service for?','How long does the consultation take?','What should I bring?','How often should follow-up be done?','Can I ask about lens options during the visit?'];
+const jsonLd = {'@context':'https://schema.org','@type':'FAQPage',mainEntity:faqs.map((q)=>({'@type':'Question',name:q,acceptedAnswer:{'@type':'Answer',text:`${service.title} at DOSU Optical includes clear explanation, suitability checks, and practical next-step recommendations.`}}))};
+---
+<BaseLayout title={service.title} description={`${service.desc} Book ${service.title.toLowerCase()} at DOSU Optical in Taipan USJ.`} path={`/services/${service.slug}`} jsonLd={[jsonLd]}><Breadcrumbs items={[{label:'Home',href:'/'},{label:'Services',href:'/services/eye-examination'},{label:service.title}]} /><section class="section"><div class="container max-w-4xl"><p class="eyebrow">Service</p><h1 class="mt-3 text-5xl font-bold">{service.title}</h1><p class="mt-6 text-xl">{service.desc}</p>{['Introduction','Who Is It For?','Benefits','What To Expect'].map((h)=><section class="mt-10"><h2 class="text-3xl font-bold">{h}</h2><p class="mt-4 text-lg">{service.title} focuses on what your eyes need, why the issue matters, who may benefit, when review is appropriate, and how recommendations are selected for daily life.</p></section>)}<section class="mt-10"><h2 class="text-3xl font-bold">Frequently Asked Questions</h2><div class="mt-5 space-y-4">{faqs.map((q)=><details class="card"><summary class="cursor-pointer font-semibold">{q}</summary><p class="mt-3">Our team will explain findings in plain language and recommend suitable next steps based on your symptoms, prescription, and lifestyle.</p></details>)}</div></section><a class="btn-primary mt-10" href={site.whatsapp}>Book Appointment</a></div></section></BaseLayout>

@@ -1,0 +1,12 @@
+---
+import { nav, site } from '@/data/site';
+---
+<header class="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur">
+  <nav class="container flex h-16 items-center justify-between" aria-label="Main navigation">
+    <a href="/" class="text-xl font-bold text-slate-950" aria-label="DOSU Optical home">DOSU<span class="text-brand-600"> Optical</span></a>
+    <div class="hidden items-center gap-6 md:flex">
+      {nav.map(([label, href]) => <a class="text-sm font-medium text-slate-700 hover:text-brand-600" href={href}>{label}</a>)}
+    </div>
+    <a class="btn-primary px-4 py-2" href={site.whatsapp}>WhatsApp</a>
+  </nav>
+</header>

@@ -1,0 +1,19 @@
+---
+import { site } from '@/data/site';
+const { title, description, path = '/', image = '/og.svg', type = 'website', jsonLd = [] } = Astro.props;
+const canonical = new URL(path, site.url).toString();
+const fullTitle = title === site.name ? title : `${title} | ${site.name}`;
+const schemas = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+---
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={new URL(image, site.url).toString()} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+{schemas.map((schema) => <script type="application/ld+json" set:html={JSON.stringify(schema)} />)}

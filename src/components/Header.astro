@@ -1,12 +1,19 @@
 ---
 import { nav, site } from '@/data/site';
+const primaryNav = nav.filter(([label]) => ['Home', 'Services', 'Brands', 'Learn', 'Contact'].includes(label));
 ---
-<header class="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur">
-  <nav class="container flex h-16 items-center justify-between" aria-label="Main navigation">
-    <a href="/" class="text-xl font-bold text-slate-950" aria-label="DOSU Optical home">DOSU<span class="text-brand-600"> Optical</span></a>
-    <div class="hidden items-center gap-6 md:flex">
-      {nav.map(([label, href]) => <a class="text-sm font-medium text-slate-700 hover:text-brand-600" href={href}>{label}</a>)}
+<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950 text-white">
+  <div class="hidden h-7 items-center justify-center bg-slate-950/95 text-[11px] font-semibold tracking-wide text-white/70 md:flex">
+    Premium eye examinations, curated frames, and lens care in Taipan USJ
+  </div>
+  <nav class="container flex h-[68px] items-center justify-between" aria-label="Main navigation">
+    <a href="/" class="text-lg font-black italic tracking-tighter" aria-label="DOSU Optical home">DOSU<span class="text-brand-500">OPTICAL</span></a>
+    <div class="hidden items-center gap-7 lg:flex">
+      {primaryNav.map(([label, href]) => <a class="text-sm font-bold text-white/75 hover:text-white" href={href}>{label}</a>)}
     </div>
-    <a class="btn-primary px-4 py-2" href={site.whatsapp}>WhatsApp</a>
+    <div class="flex items-center gap-3">
+      <a class="hidden text-sm font-bold text-white/75 hover:text-white sm:inline-flex" href="/faq">FAQ</a>
+      <a class="rounded-full bg-white px-5 py-2.5 text-sm font-black text-slate-950 transition hover:-translate-y-0.5 hover:bg-brand-500 hover:text-white active:translate-y-0" href={site.whatsapp}>WhatsApp</a>
+    </div>
   </nav>
 </header>

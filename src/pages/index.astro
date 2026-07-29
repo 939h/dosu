@@ -1,12 +1,117 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { services, site } from '@/data/site';
+const categories = [
+  ['Designer Frames', 'Acetate, titanium, and lightweight daily styles.', 'bg-slate-950 text-white', 'FRAMES'],
+  ['Smart Lens Fittings', 'Progressives, office lenses, and blue-control options.', 'orange-panel text-white', 'LENSES'],
+  ['Family Eye Care', 'Children, adults, and long-term prescription care.', 'bg-white text-slate-950', 'CARE'],
+];
+const models = [
+  ['AeroLite Titanium', 'Featherweight everyday precision', 'from RM 388'],
+  ['Studio Acetate', 'Bold silhouettes for sharper presence', 'from RM 328'],
+  ['ClearView Progressive', 'One lens for near, screen, and distance', 'consultation'],
+];
 const reviews = ['Clear explanation and friendly service from start to finish.', 'Professional eye examination and helpful lens recommendations.', 'Great support for children’s eyewear and after-sales adjustments.'];
 ---
-<BaseLayout title="Professional Eye Care in Taipan USJ" description="Comprehensive eye examinations, children’s myopia management, premium prescription eyewear, and personalised vision care in Taipan USJ." path="/">
-  <section class="section bg-gradient-to-b from-brand-50 to-white"><div class="container grid items-center gap-12 lg:grid-cols-2"><div><p class="eyebrow">Taipan USJ Optical Practice</p><h1 class="mt-4 text-5xl font-bold lg:text-6xl">Professional Eye Care for Every Stage of Life</h1><p class="mt-6 text-xl text-slate-600">Comprehensive eye examinations, children’s myopia management, premium prescription eyewear, and personalised vision care in Taipan USJ.</p><div class="mt-8 flex flex-wrap gap-4"><a class="btn-primary" href="/contact">Book Appointment</a><a class="btn-secondary" href={site.whatsapp}>WhatsApp Us</a></div></div><div class="rounded-[2rem] bg-white p-4 shadow-soft"><img src="/clinic.svg" alt="Bright modern optical clinic consultation area" loading="eager" class="w-full rounded-[1.5rem]" /></div></div></section>
-  <section class="section"><div class="container"><p class="eyebrow">Why choose us</p><h2 class="mt-3 text-4xl font-bold">Practical, professional vision care</h2><div class="mt-10 grid gap-5 md:grid-cols-4">{['Professional Eye Examination','Personalised Consultation','Premium Lens Solutions','Friendly After-Sales Service'].map((x) => <article class="card"><h3 class="text-xl font-semibold">{x}</h3><p class="mt-3">Clear recommendations focused on your vision needs, lifestyle, and long-term comfort.</p></article>)}</div></div></section>
-  <section class="section bg-slate-50"><div class="container"><p class="eyebrow">Our services</p><h2 class="mt-3 text-4xl font-bold">Care for children, adults, and families</h2><div class="mt-10 grid gap-6 md:grid-cols-3">{services.map((s) => <a class="card hover:-translate-y-1" href={`/services/${s.slug}`}><h3 class="text-xl font-semibold">{s.title}</h3><p class="mt-3">{s.desc}</p><span class="mt-5 inline-block font-semibold text-brand-600">Learn more →</span></a>)}</div></div></section>
-  <section class="section"><div class="container grid gap-10 lg:grid-cols-2"><div><p class="eyebrow">Customer reviews</p><h2 class="mt-3 text-4xl font-bold">Trusted by local families</h2><p class="mt-4 text-lg">Google rating display and live review integration can be connected when the business profile API or approved embed is available.</p><p class="mt-6 text-3xl font-bold text-brand-600">★★★★★ 4.9/5</p></div><div class="space-y-4">{reviews.map((r) => <blockquote class="card">“{r}”</blockquote>)}</div></div></section>
-  <section class="section bg-slate-50"><div class="container"><p class="eyebrow">Eye care knowledge</p><h2 class="mt-3 text-4xl font-bold">Latest educational articles</h2><div class="mt-10 grid gap-6 md:grid-cols-4">{['Why Is Myopia Increasing Among Malaysian Children?','How Often Should You Have an Eye Examination?','Progressive Lenses Explained','Digital Eye Strain Guide'].map((title) => <article class="card"><h3 class="font-semibold">{title}</h3><a class="mt-4 inline-block text-brand-600" href="/blog/progressive-lenses-guide">Read guide →</a></article>)}</div></div></section>
+<BaseLayout title="Premium Eye Care in Taipan USJ" description="Comprehensive eye examinations, premium prescription eyewear, myopia management, and personalised optical care in Taipan USJ." path="/">
+  <div class="design-shell">
+    <section class="orange-panel relative min-h-[calc(100dvh-95px)] overflow-hidden px-4 py-10 text-white sm:px-8 lg:px-14">
+      <div class="absolute inset-x-0 top-12 mx-auto h-[46rem] max-w-6xl rounded-full bg-black/10 blur-3xl"></div>
+      <div class="relative mx-auto grid min-h-[calc(100dvh-12rem)] max-w-7xl items-center gap-10 lg:grid-cols-[.85fr_1.15fr]">
+        <div class="reveal-up max-w-xl pt-8 lg:pt-0">
+          <p class="text-xs font-black uppercase tracking-[0.26em] text-white/75">Taipan USJ Optical Boutique</p>
+          <h1 class="mt-5 text-5xl font-black uppercase leading-[.88] tracking-[-0.06em] sm:text-6xl lg:text-7xl">See sharper. Look iconic.</h1>
+          <p class="mt-6 max-w-[52ch] text-lg font-semibold leading-8 text-white/80">Premium examinations, curated eyewear, and lens fittings made for Malaysian everyday life.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a class="btn-primary bg-slate-950" href="/contact">Book exam</a>
+            <a class="btn-secondary border-white/30 bg-white/15 text-white backdrop-blur hover:border-white hover:text-white" href="/brands">Explore frames</a>
+          </div>
+        </div>
+        <div class="relative mx-auto aspect-[1.25] w-full max-w-3xl float-slow">
+          <div class="lens-glow absolute left-6 top-20 h-64 w-64 rounded-full border-[18px] border-slate-950/80 shadow-[0_25px_80px_rgba(0,0,0,.25)] sm:h-80 sm:w-80"></div>
+          <div class="lens-glow absolute right-6 top-20 h-64 w-64 rounded-full border-[18px] border-slate-950/80 shadow-[0_25px_80px_rgba(0,0,0,.25)] sm:h-80 sm:w-80"></div>
+          <div class="absolute left-[24%] right-[24%] top-[42%] h-5 rounded-full bg-slate-950/85"></div>
+          <div class="absolute left-[10%] top-[38%] h-4 w-[18%] -rotate-12 rounded-full bg-slate-950/85"></div>
+          <div class="absolute right-[10%] top-[38%] h-4 w-[18%] rotate-12 rounded-full bg-slate-950/85"></div>
+          <div class="absolute right-10 top-14 rounded-full bg-white px-5 py-3 text-lg font-black text-brand-600 shadow-soft">Eye exam</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid border-y border-slate-200 bg-stone-200/80 text-slate-950 md:grid-cols-4">
+      {['Detailed Eye Exams', 'Secure Payments', 'Curated Frames', 'After-Sales Care'].map((item) => <div class="border-slate-300 px-6 py-7 text-center text-sm font-black md:border-r last:border-r-0">{item}</div>)}
+    </section>
+
+    <section class="section bg-stone-100">
+      <div class="container">
+        <div class="accent-squiggle text-center">
+          <h2 class="text-4xl font-black uppercase leading-none tracking-[-0.04em] sm:text-6xl">Shop by category</h2>
+          <p class="mx-auto mt-4 max-w-xl font-semibold text-slate-600">Find eyewear and lens care tailored to how you work, drive, study, and show up.</p>
+        </div>
+        <div class="mt-12 grid gap-6 lg:grid-cols-3">
+          {categories.map(([title, desc, theme, ghost]) => (
+            <a href="/brands" class={`group relative min-h-[430px] overflow-hidden rounded-[2rem] p-8 shadow-soft ${theme}`}>
+              <span class="absolute bottom-6 right-6 text-7xl font-black tracking-[-0.08em] opacity-10">{ghost}</span>
+              <h3 class="relative text-3xl font-black tracking-[-0.04em]">{title}</h3>
+              <p class="relative mt-3 max-w-xs font-semibold opacity-75">{desc}</p>
+              <span class="relative mt-7 inline-flex rounded-full bg-slate-950 px-5 py-3 text-xs font-black uppercase text-white transition group-hover:-translate-y-1">Shop now</span>
+              <div class="absolute bottom-16 left-8 right-8 h-28 rounded-full bg-white/20 blur-2xl"></div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section overflow-hidden bg-stone-100 pt-6">
+      <div class="container rounded-[3rem] bg-white px-6 py-14 shadow-soft sm:px-10 lg:px-14">
+        <div class="accent-squiggle text-center"><h2 class="text-4xl font-black uppercase tracking-[-0.04em] sm:text-5xl">Shop by model</h2></div>
+        <div class="mt-12 grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
+          <div class="orange-panel relative min-h-[360px] overflow-hidden rounded-[2rem] p-7 text-white">
+            <p class="text-lg font-black">Signature eyewear edit</p>
+            <div class="absolute inset-x-10 bottom-16 h-28 rounded-full bg-black/35 blur-3xl"></div>
+            <div class="absolute left-1/2 top-1/2 h-40 w-[76%] -translate-x-1/2 -translate-y-1/2 rounded-full border-[18px] border-slate-950/90"></div>
+            <div class="absolute bottom-7 left-7 right-7 flex justify-between text-xs font-black"><span>01</span><span>08</span></div>
+          </div>
+          <div>
+            <div class="relative flex min-h-36 items-center gap-4 overflow-hidden">
+              <span class="absolute -left-12 text-[8rem] font-black uppercase leading-none tracking-[-0.08em] text-slate-100">Focus</span>
+              {models.map(([name]) => <div class="relative grid h-28 w-28 shrink-0 place-items-center rounded-full bg-stone-100 ring-8 ring-white"><span class="h-12 w-20 rounded-full border-[7px] border-slate-950"></span><span class="sr-only">{name}</span></div>)}
+            </div>
+            <h3 class="mt-8 text-3xl font-black tracking-[-0.04em]">{models[0][0]}</h3>
+            <p class="mt-2 font-semibold text-slate-600">{models[0][1]}</p>
+            <p class="mt-5 text-4xl font-black text-slate-950">{models[0][2]}</p>
+            <a class="btn-primary mt-8" href="/contact">Try in store</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-stone-100 pt-6">
+      <div class="container">
+        <div class="rounded-[2rem] bg-slate-950 p-8 text-center text-white shadow-soft sm:p-12">
+          <h2 class="text-4xl font-black uppercase tracking-[-0.04em] sm:text-5xl">Vision resources hub</h2>
+          <p class="mx-auto mt-4 max-w-xl font-semibold text-white/65">Practical guides for lenses, myopia control, screen fatigue, and better everyday vision.</p>
+          <div class="mt-9 grid gap-4 text-left md:grid-cols-4">
+            {['Myopia advice', 'Lens guide', 'Eye exam timing', 'Digital strain'].map((item) => <a class="rounded-full bg-white px-5 py-4 text-sm font-black text-slate-950 hover:bg-brand-500 hover:text-white" href="/learn/myopia">{item}</a>)}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-stone-100 pt-6">
+      <div class="container">
+        <h2 class="text-center text-4xl font-black uppercase tracking-[-0.04em] sm:text-5xl">Optical services</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((s) => <a class="card hover:-translate-y-1 hover:border-brand-100" href={`/services/${s.slug}`}><h3 class="text-xl font-black">{s.title}</h3><p class="mt-3 leading-7 text-slate-600">{s.desc}</p><span class="mt-5 inline-flex text-sm font-black text-brand-600">Learn more →</span></a>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-stone-100 pt-6">
+      <div class="container grid gap-8 lg:grid-cols-[.8fr_1.2fr]">
+        <div class="rounded-[2rem] bg-white p-8 shadow-soft"><h2 class="text-4xl font-black uppercase tracking-[-0.04em]">Loved by local families</h2><p class="mt-4 text-lg font-semibold text-slate-600">Friendly guidance, careful measurements, and eyewear adjustments after collection.</p><p class="mt-8 text-4xl font-black text-brand-600">4.9/5</p></div>
+        <div class="grid gap-4 md:grid-cols-3">{reviews.map((r) => <blockquote class="rounded-[2rem] bg-white p-6 font-semibold leading-7 shadow-soft">“{r}”</blockquote>)}</div>
+      </div>
+    </section>
+  </div>
 </BaseLayout>

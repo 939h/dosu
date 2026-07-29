@@ -1,11 +1,11 @@
 export const site = {
   name: 'DOSU Optical',
   url: 'https://dosuoptical.com',
-  phone: '+60 12-345 6789',
-  whatsapp: 'https://wa.me/60123456789',
-  address: 'Taipan USJ, Subang Jaya, Selangor, Malaysia',
-  maps: 'https://www.google.com/maps/search/?api=1&query=DOSU%20Optical%20Taipan%20USJ',
-  hours: ['Mon–Sat: 10:00 AM – 8:00 PM', 'Sunday: 11:00 AM – 6:00 PM'],
+  phone: '+60 19-7099 313',
+  whatsapp: 'https://wa.me/60197099313',
+  address: 'No 49, Jalan USJ 10/1g Taipan Business Center, 47620, Subang Jaya, Selangor, Malaysia',
+  maps: 'https://www.google.com/maps/search/?api=1&query=No%2049%20Jalan%20USJ%2010%2F1g%20Taipan%20Business%20Center%2047620%20Subang%20Jaya%20Selangor%20Malaysia',
+  hours: ['Mon–Sat: 11:00 AM – 8:30 PM', 'Sunday: 12:00 PM – 7:00 PM'],
   social: { facebook: 'https://www.facebook.com/', instagram: 'https://www.instagram.com/' },
 };
 

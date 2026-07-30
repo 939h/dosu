@@ -65,15 +65,3 @@ a { @apply transition-colors; }
   .whatsapp-link { @apply grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(37,211,102,.36)] transition hover:-translate-y-1 hover:bg-[#1ebe5d] focus:outline-none focus:ring-4 focus:ring-[#25D366]/25; }
   .whatsapp-link svg { @apply h-8 w-8; }
 }
-
-@layer components {
-  .visual-card { @apply relative flex min-h-[220px] overflow-hidden rounded-[2rem] p-7 shadow-soft transition duration-300 hover:-translate-y-1; background-color: #111827; }
-  .visual-card::before { content: ''; position: absolute; inset: 0; opacity: .96; background-size: cover; background-position: center; }
-  .visual-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,.08), rgba(15,23,42,.72)); }
-  .visual-card > span, .visual-card > strong { @apply relative z-10 text-white; }
-  .visual-card > span { @apply mt-auto text-3xl font-black uppercase tracking-[-0.04em]; }
-  .visual-card > strong { @apply absolute bottom-7 right-7 rounded-full bg-white px-4 py-2 text-xs font-medium uppercase tracking-wide text-slate-950; }
-  .photo-exam::before { background-image: radial-gradient(circle at 28% 34%, rgba(255,255,255,.95) 0 7%, transparent 8%), radial-gradient(circle at 58% 44%, rgba(255,255,255,.9) 0 10%, transparent 11%), linear-gradient(135deg, rgba(255,122,0,.9), rgba(15,23,42,.92)), url('/clinic.svg'); }
-  .photo-frames::before { background-image: radial-gradient(ellipse at 50% 58%, transparent 0 18%, #111827 19% 24%, transparent 25%), radial-gradient(ellipse at 32% 58%, transparent 0 16%, #111827 17% 23%, transparent 24%), linear-gradient(135deg, #f8fafc, #f97316); }
-  .photo-sun::before { background-image: radial-gradient(circle at 76% 28%, rgba(255,255,255,.9) 0 8%, transparent 9%), linear-gradient(135deg, rgba(2,6,23,.25), rgba(249,115,22,.86)), url('/og.svg'); }
-}

@@ -1,0 +1,19 @@
+---
+import { site } from '@/data/site';
+---
+<div class="whatsapp-chat" aria-label="WhatsApp chat shortcut">
+  <div class="whatsapp-bubble">
+    <button class="whatsapp-close" type="button" aria-label="Hide WhatsApp greeting">×</button>
+    <p>Hi there, how can I help you?</p>
+  </div>
+  <a class="whatsapp-link" href={site.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Chat with DOSU Optical on WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M16.02 3.2A12.73 12.73 0 0 0 5.16 22.57L3.75 28.8l6.35-1.34A12.8 12.8 0 1 0 16.02 3.2Zm0 23.32c-1.9 0-3.74-.5-5.36-1.44l-.38-.22-3.76.8.82-3.68-.25-.38a10.6 10.6 0 1 1 8.93 4.92Zm5.82-7.95c-.32-.16-1.88-.93-2.17-1.04-.29-.1-.5-.16-.7.16-.21.31-.8 1.03-.98 1.24-.18.21-.36.23-.68.08-.32-.16-1.34-.49-2.55-1.57-.94-.84-1.58-1.88-1.76-2.2-.18-.31-.02-.49.14-.64.14-.14.32-.36.48-.54.16-.18.21-.31.32-.52.11-.21.05-.39-.03-.55-.08-.16-.7-1.7-.96-2.32-.25-.6-.51-.52-.7-.53h-.6c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.63s1.13 3.05 1.29 3.26c.16.21 2.22 3.39 5.38 4.75.75.32 1.34.52 1.8.66.76.24 1.44.2 1.98.12.6-.09 1.88-.77 2.14-1.51.26-.74.26-1.38.18-1.51-.08-.13-.29-.21-.61-.37Z" />
+    </svg>
+  </a>
+</div>
+<script is:inline>
+  document.querySelector('.whatsapp-close')?.addEventListener('click', () => {
+    document.querySelector('.whatsapp-bubble')?.setAttribute('hidden', '');
+  });
+</script>

@@ -24,3 +24,17 @@ a { @apply transition-colors; }
 }
 @keyframes float-slow { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
 @keyframes reveal-up { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+@layer base {
+  :focus-visible { @apply outline-none ring-4 ring-brand-100; }
+  ::selection { @apply bg-brand-500 text-white; }
+}
+
+@layer components {
+  .hover-card { @apply transition duration-300 ease-out hover:-translate-y-1 hover:border-brand-100 hover:shadow-[0_26px_70px_rgba(15,23,42,.14)]; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .section { animation: reveal-up .55s ease-out both; animation-timeline: view(); animation-range: entry 0% cover 22%; }
+  details[open] > :not(summary) { animation: reveal-up .28s ease-out both; }
+}

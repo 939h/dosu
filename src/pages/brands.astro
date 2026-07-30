@@ -3,7 +3,6 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import { site } from '@/data/site';
 
-const categories = ['Frames', 'Sunglasses', 'Opthalmic lenses', 'Featured collections'];
 const lensBrands = [
   ['ZEISS', '/brands/zeiss.svg'],
   ['STEPPER', '/brands/stepper.svg'],
@@ -21,13 +20,11 @@ const lensBrands = [
       <p class="mx-auto mt-7 max-w-4xl text-base leading-8 text-slate-700">Explore frames, sunglasses, opthalmic lenses, and featured collections in one place. Book a personalised consultation and our team will help match the right products to your lifestyle.</p>
       <a class="mt-7 inline-flex min-w-[280px] justify-center rounded-full bg-black px-8 py-3 text-sm font-medium uppercase tracking-wide text-white transition hover:bg-brand-500" href={site.whatsapp}>Book an appointment</a>
 
-      <div class="mx-auto mt-16 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4" aria-label="Brand categories">
-        {categories.map((category) => (
-          <div class="rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-medium text-slate-950 shadow-sm">{category}</div>
-        ))}
+      <div class="mx-auto mt-16">
+        <p class="text-sm font-medium uppercase tracking-[0.22em] text-slate-950">Opthalmic Lenses</p>
       </div>
 
-      <div class="mx-auto mt-24 grid max-w-6xl grid-cols-2 items-center gap-x-12 gap-y-14 sm:grid-cols-3 lg:grid-cols-5" aria-label="Lens brands">
+      <div class="mx-auto mt-14 grid max-w-6xl grid-cols-2 items-center gap-x-12 gap-y-14 sm:grid-cols-3 lg:grid-cols-5" aria-label="Lens brands">
         {lensBrands.map(([brand, src]) => (
           <img src={src} alt={`${brand} lens brand logo`} loading="lazy" decoding="async" class="mx-auto max-h-32 w-full max-w-[190px] object-contain" />
         ))}

@@ -30,9 +30,9 @@ export const megaMenu = [
     items: services,
   },
   {
-    label: 'Eyewear',
+    label: 'Brands',
     href: '/brands',
-    description: 'Curated frames, sunglasses, and opthalmic lenses fitted for your lifestyle.',
+    description: 'Curated frames, sunglasses, opthalmic lenses, and featured collections in one place.',
     items: [
       { title: 'Frames', slug: 'frames', desc: 'Premium acetate, titanium, and lightweight daily eyewear.' },
       { title: 'Sunglasses', slug: 'sunglasses', desc: 'Sun-ready styles with prescription and comfort options.' },

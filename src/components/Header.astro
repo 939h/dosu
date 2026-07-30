@@ -28,7 +28,7 @@ const sentenceCase = (value: string) => value.charAt(0).toUpperCase() + value.sl
               </div>
               <div class="grid gap-2 sm:grid-cols-2">
                 {group.items.map((item) => {
-                  const href = group.label === 'Services' ? `/services/${item.slug}` : group.label === 'Eyewear' ? item.slug === 'opthalmic-lenses' ? '/eyewear/opthalmic-lenses' : '/brands' : item.slug === '../faq' ? '/faq' : `/learn/${item.slug}`;
+                  const href = group.label === 'Services' ? `/services/${item.slug}` : group.label === 'Brands' ? '/brands' : item.slug === '../faq' ? '/faq' : `/learn/${item.slug}`;
                   return <a class="rounded-[1.25rem] p-4 hover:bg-white/10 focus:bg-white/10 focus:outline-none focus:ring-4 focus:ring-brand-500/30" href={href}>
                     <span class="block text-sm font-black text-white">{item.title}</span>
                     <span class="mt-1 block text-xs font-semibold leading-5 text-white/55">{item.desc}</span>
@@ -60,7 +60,7 @@ const sentenceCase = (value: string) => value.charAt(0).toUpperCase() + value.sl
             <summary class="cursor-pointer list-none text-sm font-medium tracking-wide marker:hidden">{sentenceCase(group.label)}</summary>
             <div class="mt-4 grid gap-2">
               {group.items.map((item) => {
-                const href = group.label === 'Services' ? `/services/${item.slug}` : group.label === 'Eyewear' ? item.slug === 'opthalmic-lenses' ? '/eyewear/opthalmic-lenses' : '/brands' : item.slug === '../faq' ? '/faq' : `/learn/${item.slug}`;
+                const href = group.label === 'Services' ? `/services/${item.slug}` : group.label === 'Brands' ? '/brands' : item.slug === '../faq' ? '/faq' : `/learn/${item.slug}`;
                 return <a class="block rounded-2xl bg-stone-50 px-4 py-3 text-sm font-normal tracking-wide text-slate-700" href={href}>{sentenceCase(item.title)}</a>;
               })}
             </div>

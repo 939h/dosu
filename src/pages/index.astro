@@ -2,7 +2,7 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { services, site } from '@/data/site';
 
-const trustSignals = ['Detailed Eye Exams', 'Reserved Parking', 'Curated Frames', 'After-Sales Care'];
+const trustSignals = ['Detailed Eye Exams', 'Reserved Parking', 'Trendy Frames', 'After Sales Care'];
 const reasons = [
   ['Personalised first', 'Recommendations are matched to your prescription, face fit, daily habits, and comfort needs.'],
   ['Premium but practical', 'A curated eyewear and lens edit keeps choices clear without overwhelming you.'],
@@ -18,7 +18,13 @@ const collections = [
   ['Studio Acetate', 'Bold silhouettes for sharper presence', 'from RM 328'],
   ['HD Progressive Lenses', 'One lens for near, screen, and distance', 'consultation'],
 ];
-const ophthalmicLensBrands = ['ZEISS', 'Nikon', 'HOYA', 'Essilor'];
+const ophthalmicLensBrands = [
+  ['ZEISS', '/brands/zeiss.svg'],
+  ['STEPPER', '/brands/stepper.svg'],
+  ['Nikon', '/brands/nikon.svg'],
+  ['HOYA', '/brands/hoya.svg'],
+  ['Essilor', '/brands/essilor.svg'],
+];
 const articles = [
   ['Progressive Lenses Explained', 'A practical guide to choosing and adapting to multifocal lenses.', '/blog/progressive-lenses-guide'],
   ['Why Is Myopia Increasing in Malaysia?', 'What families should know about childhood short-sightedness.', '/blog/myopia-malaysia'],
@@ -129,14 +135,9 @@ const faqs = [
         <h2 class="mt-5 text-4xl font-medium uppercase tracking-[-0.03em] text-slate-950 sm:text-5xl">Lenses</h2>
         <p class="mx-auto mt-7 max-w-4xl text-base leading-8 text-slate-700">Whether you need lenses for everyday wear, computer use, or outdoor activities, our team is ready to help. Book a personalised consultation to explore your options and choose the lenses that best support your lifestyle.</p>
         <a class="mt-7 inline-flex min-w-[280px] justify-center rounded-full bg-black px-8 py-3 text-sm font-medium uppercase tracking-wide text-white transition hover:bg-brand-500" href={site.whatsapp}>Book an appointment</a>
-        <div class="mx-auto mt-28 grid max-w-6xl items-center gap-10 sm:grid-cols-2 lg:grid-cols-4" aria-label="Ophthalmic lens brands">
-          {ophthalmicLensBrands.map((brand) => (
-            <a href="/brands" class="group grid min-h-28 place-items-center rounded-2xl bg-white px-6 py-5 transition hover:-translate-y-1 hover:shadow-soft">
-              <span class:list={[
-                'font-medium leading-none tracking-[-0.06em] text-slate-950 transition group-hover:text-brand-600',
-                brand === 'ZEISS' ? 'text-5xl font-semibold tracking-[-0.08em]' : brand === 'HOYA' ? 'text-5xl uppercase tracking-[-0.04em]' : brand === 'Essilor' ? 'text-4xl lowercase text-slate-500' : 'text-5xl italic'
-              ]}>{brand}</span>
-            </a>
+        <div class="mx-auto mt-28 grid max-w-6xl grid-cols-2 items-center gap-x-12 gap-y-14 sm:grid-cols-3 lg:grid-cols-5" aria-label="Ophthalmic lens brands">
+          {ophthalmicLensBrands.map(([brand, src]) => (
+            <img src={src} alt={`${brand} lens brand logo`} loading="lazy" decoding="async" class="mx-auto max-h-32 w-full max-w-[190px] object-contain" />
           ))}
         </div>
       </div>

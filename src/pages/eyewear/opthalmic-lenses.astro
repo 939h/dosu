@@ -1,0 +1,29 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { site } from '@/data/site';
+
+const ophthalmicLensBrands = [
+  ['ZEISS', '/brands/zeiss.svg'],
+  ['STEPPER', '/brands/stepper.svg'],
+  ['Nikon', '/brands/nikon.svg'],
+  ['HOYA', '/brands/hoya.svg'],
+  ['Essilor', '/brands/essilor.svg'],
+];
+---
+<BaseLayout title="Opthalmic Lenses" description="Explore ophthalmic lens brands available at DOSU Optical, including ZEISS, STEPPER, Nikon, HOYA, and Essilor." path="/eyewear/opthalmic-lenses">
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Eyewear', href: '/brands' }, { label: 'Opthalmic lenses' }]} />
+  <section class="section bg-white">
+    <div class="container text-center">
+      <p class="text-xs font-medium uppercase tracking-[0.22em] text-slate-950">Opthalmic Lenses's brands</p>
+      <h1 class="mt-5 text-4xl font-medium uppercase tracking-[-0.03em] text-slate-950 sm:text-5xl">Lenses</h1>
+      <p class="mx-auto mt-7 max-w-4xl text-base leading-8 text-slate-700">Lenses you needed for everyday wear, computer use, or outdoor activities.</p>
+      <a class="mt-7 inline-flex min-w-[280px] justify-center rounded-full bg-black px-8 py-3 text-sm font-medium uppercase tracking-wide text-white transition hover:bg-brand-500" href={site.whatsapp}>Book an appointment</a>
+      <div class="mx-auto mt-28 grid max-w-6xl grid-cols-2 items-center gap-x-12 gap-y-14 sm:grid-cols-3 lg:grid-cols-5" aria-label="Opthalmic lens brands">
+        {ophthalmicLensBrands.map(([brand, src]) => (
+          <img src={src} alt={`${brand} lens brand logo`} loading="lazy" decoding="async" class="mx-auto max-h-32 w-full max-w-[190px] object-contain" />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 180" role="img" aria-labelledby="title">
+  <title id="title">Essilor</title>
+  <rect x="28" y="8" width="194" height="96" fill="#438ccc"/>
+  <path d="M76 56c24-35 71-37 102-2-28 34-75 36-102 2Z" fill="none" stroke="#fff" stroke-width="9"/>
+  <text x="126" y="74" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="58" font-style="italic" font-weight="700" fill="#fff">e</text>
+  <text x="125" y="150" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="700" fill="#6d6e71">essilor</text>
+</svg>

@@ -3,6 +3,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import Breadcrumbs from '@/components/Breadcrumbs.astro';
 import { site } from '@/data/site';
 
+const frameAndSunglassesBrands: [string, string][] = [];
+
 const lensBrands = [
   ['ZEISS', '/brands/zeiss.svg'],
   ['STEPPER', '/brands/stepper.svg'],
@@ -21,6 +23,20 @@ const lensBrands = [
       <a class="mt-7 inline-flex min-w-[280px] justify-center rounded-full bg-black px-8 py-3 text-sm font-medium uppercase tracking-wide text-white transition hover:bg-brand-500" href={site.whatsapp}>Book an appointment</a>
 
       <div class="mx-auto mt-16">
+        <p class="text-sm font-medium uppercase tracking-[0.22em] text-slate-950">FRAME &amp; SUNGLASSES</p>
+      </div>
+
+      {frameAndSunglassesBrands.length > 0 ? (
+        <div class="mx-auto mt-14 grid max-w-6xl grid-cols-2 items-center gap-x-12 gap-y-14 sm:grid-cols-3 lg:grid-cols-5" aria-label="Frame and sunglasses brands">
+          {frameAndSunglassesBrands.map(([brand, src]) => (
+            <img src={src} alt={`${brand} frame and sunglasses brand logo`} loading="lazy" decoding="async" class="mx-auto max-h-32 w-full max-w-[190px] object-contain" />
+          ))}
+        </div>
+      ) : (
+        <p class="mx-auto mt-7 max-w-3xl text-sm leading-7 text-slate-500">Frame and sunglasses brand logos will be added here.</p>
+      )}
+
+      <div class="mx-auto mt-20">
         <p class="text-sm font-medium uppercase tracking-[0.22em] text-slate-950">Opthalmic Lenses</p>
       </div>
 

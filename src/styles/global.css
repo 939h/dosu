@@ -59,6 +59,8 @@ a { @apply transition-colors; }
   .eyebrow { @apply font-medium tracking-[0.24em]; }
   .btn-primary,
   .btn-secondary { @apply font-medium; }
+  .footer-brand-logo { @apply h-16 w-16 rounded-full bg-brand-50 object-contain p-2 ring-1 ring-brand-100; }
+  .contact-detail-title { @apply mb-1 text-xs font-medium uppercase tracking-[0.18em] text-slate-950; }
   .whatsapp-chat { @apply fixed bottom-5 right-5 z-[60] flex flex-col items-end gap-4; }
   .whatsapp-bubble { @apply relative max-w-[280px] rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm text-slate-700 shadow-[0_8px_28px_rgba(15,23,42,.18)]; }
   .whatsapp-close { @apply absolute right-3 top-2 text-xl leading-none text-slate-300 transition hover:text-slate-500; }

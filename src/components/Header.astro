@@ -4,6 +4,15 @@ const pathname = Astro.url.pathname;
 const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href);
 const isMegaActive = (label: string, href: string) => label === 'Services' ? pathname.startsWith('/services') : label === 'Learn' ? pathname.startsWith('/learn') || pathname.startsWith('/blog') : isActive(href);
 const sentenceCase = (value: string) => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+const serviceMenuImages: Record<string, string> = {
+  'eye-examination': '/menu/eye-exam.svg',
+  'childrens-eye-care': '/menu/child-eye-care.svg',
+  'myopia-management': '/menu/myopia.svg',
+  'progressive-lenses': '/menu/progressive-lenses.svg',
+  'contact-lenses': '/menu/contact-lenses.svg',
+  'dry-eye-consultation': '/menu/dry-eye.svg',
+};
+const getMenuImage = (label: string, slug: string) => label === 'Services' ? serviceMenuImages[slug] ?? '/clinic.svg' : label === 'Brands' ? '/brands/frame-slot-01.svg' : '/clinic.svg';
 ---
 <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950 text-white shadow-[0_18px_50px_rgba(15,23,42,.18)]">
   <div class="hidden h-8 items-center justify-center bg-slate-950/95 text-[11px] font-semibold tracking-wide text-white/70 md:flex">
@@ -20,18 +29,21 @@ const sentenceCase = (value: string) => value.charAt(0).toUpperCase() + value.sl
           </a>
           <div class="invisible absolute left-1/2 top-full w-[760px] -translate-x-1/2 translate-y-3 pt-4 opacity-0 transition duration-200 group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:opacity-100 group-focus-within/nav:visible group-focus-within/nav:translate-y-0 group-focus-within/nav:opacity-100">
             <div class="grid gap-6 rounded-[2rem] border border-white/10 bg-slate-950/95 p-6 shadow-[0_30px_90px_rgba(0,0,0,.35)] ring-1 ring-white/10 backdrop-blur-xl lg:grid-cols-[.85fr_1.15fr]">
-              <div class="orange-panel rounded-[1.5rem] p-6 text-white">
-                <p class="text-xs font-black uppercase tracking-[0.22em] text-white/70">Explore {group.label}</p>
-                <h2 class="mt-4 text-3xl font-black uppercase leading-none tracking-[-0.05em] text-white">Premium guidance, clearly organised.</h2>
-                <p class="mt-4 text-sm font-semibold leading-6 text-white/75">{group.description}</p>
-                <a class="mt-6 inline-flex rounded-full bg-white px-5 py-3 text-xs font-black uppercase text-slate-950 hover:bg-slate-950 hover:text-white" href={group.href}>View all</a>
+              <div class="relative min-h-[330px] overflow-hidden rounded-[1.5rem] bg-slate-900 text-white">
+                <img class="absolute inset-0 h-full w-full object-cover" src={getMenuImage(group.label, group.items[0]?.slug ?? '')} alt={`${group.label} preview`} loading="lazy" decoding="async" />
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/15 to-transparent"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-6">
+                  <p class="text-xs font-black uppercase tracking-[0.22em] text-white/75">Explore {group.label}</p>
+                  <a class="mt-4 inline-flex rounded-full bg-white px-5 py-3 text-xs font-black uppercase text-slate-950 hover:bg-brand-500 hover:text-white" href={group.href}>View all</a>
+                </div>
               </div>
-              <div class="grid gap-2 sm:grid-cols-2">
+              <div class="grid gap-3 sm:grid-cols-2">
                 {group.items.map((item) => {
                   const href = group.label === 'Services' ? `/services/${item.slug}` : group.label === 'Brands' ? '/brands' : item.slug === '../faq' ? '/faq' : `/learn/${item.slug}`;
-                  return <a class="rounded-[1.25rem] p-4 hover:bg-white/10 focus:bg-white/10 focus:outline-none focus:ring-4 focus:ring-brand-500/30" href={href}>
-                    <span class="block text-sm font-black text-white">{item.title}</span>
-                    <span class="mt-1 block text-xs font-semibold leading-5 text-white/55">{item.desc}</span>
+                  return <a class="group/item relative min-h-[150px] overflow-hidden rounded-[1.25rem] bg-slate-900 hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-brand-500/30" href={href}>
+                    <img class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover/item:scale-105" src={getMenuImage(group.label, item.slug)} alt={item.title} loading="lazy" decoding="async" />
+                    <span class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></span>
+                    <span class="absolute bottom-4 left-4 right-4 block text-sm font-black text-white drop-shadow">{item.title}</span>
                   </a>;
                 })}
               </div>

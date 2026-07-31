@@ -1,6 +1,6 @@
 export const site = {
   name: 'DOSU Optical',
-  url: 'https://www.dosuoptical.com',
+  url: 'https://dosuoptical.com',
   phone: '+60 19-7099 313',
   whatsapp: 'https://wa.me/60197099313',
   address: 'No 49, Jalan USJ 10/1g Taipan Business Center, 47620, Subang Jaya, Selangor, Malaysia',

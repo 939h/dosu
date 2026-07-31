@@ -3,7 +3,7 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.dosuoptical.com',
+  site: 'https://dosuoptical.com',
   integrations: [tailwind({ applyBaseStyles: false }), sitemap()],
   output: 'static',
 });

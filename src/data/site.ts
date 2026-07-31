@@ -6,7 +6,7 @@ export const site = {
   address: 'No 49, Jalan USJ 10/1g Taipan Business Center, 47620, Subang Jaya, Selangor, Malaysia',
   maps: 'https://www.google.com/maps/search/?api=1&query=No%2049%20Jalan%20USJ%2010%2F1g%20Taipan%20Business%20Center%2047620%20Subang%20Jaya%20Selangor%20Malaysia',
   hours: ['Mon–Sat: 11:00 AM – 8:30 PM', 'Sunday: 12:00 PM – 7:00 PM'],
-  social: { facebook: 'https://www.facebook.com/', instagram: 'https://www.instagram.com/' },
+  social: { facebook: 'https://www.facebook.com/dosueyewear', instagram: 'https://www.instagram.com/dosueyewear', tiktok: 'https://www.tiktok.com/dosueyewear' },
 };
 
 export const nav = [

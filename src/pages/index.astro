@@ -1,27 +1,12 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { services, site } from '@/data/site';
+import { site } from '@/data/site';
 
 const trustSignals = ['Detailed Eye Exams', 'Reserved Parking', 'Trendy Frames', 'After Sales Care'];
-const reasons = [
-  ['Personalised first', 'Recommendations are matched to your prescription, face fit, daily habits, and comfort needs.'],
-  ['Premium but practical', 'A curated eyewear and lens edit keeps choices clear without overwhelming you.'],
-  ['Care after collection', 'Adjustments, fit checks, and lens guidance continue after you receive your eyewear.'],
-];
 const categories = [
-  ['Designer Frames', 'Acetate, titanium, and lightweight daily styles.', 'bg-slate-950 text-white', 'FRAMES'],
-  ['Sunglasses', 'Sun-ready eyewear with prescription and lifestyle options.', 'orange-panel text-white', 'SUN'],
-  ['Family Eye Care', 'Children, adults, and long-term prescription care.', 'bg-white text-slate-950', 'CARE'],
-];
-const collections = [
-  ['Rayban Frames', 'Featherweight everyday precision', 'from RM 2xx'],
-  ['Studio Acetate', 'Bold silhouettes for sharper presence', 'from RM 328'],
-  ['HD Progressive Lenses', 'One lens for near, screen, and distance', 'consultation'],
-];
-const articles = [
-  ['Progressive Lenses Explained', 'A practical guide to choosing and adapting to multifocal lenses.', '/blog/progressive-lenses-guide'],
-  ['Why Is Myopia Increasing in Malaysia?', 'What families should know about childhood short-sightedness.', '/blog/myopia-malaysia'],
-  ['How Often Should You Have an Eye Examination?', 'When to schedule a check for adults, children, and symptoms.', '/blog/eye-examination-frequency'],
+  ['Designer Frames', 'Acetate, titanium, and lightweight daily styles.', 'FRAMES', '/home/designer-frames.svg'],
+  ['Sunglasses', 'Sun-ready eyewear with prescription and lifestyle options.', 'SUN', '/home/sunglasses.svg'],
+  ['Family Eye Care', 'Children, adults, and long-term prescription care.', 'CARE', '/home/family-eye-care.svg'],
 ];
 const reviews = ['Clear explanation and friendly service from start to finish.', 'Professional eye examination and helpful lens recommendations.', 'Great support for children’s eyewear and after-sales adjustments.'];
 const faqs = [
@@ -55,28 +40,6 @@ const faqs = [
       {trustSignals.map((item) => <div class="border-slate-300 px-6 py-7 text-center text-sm font-black md:border-r last:border-r-0">{item}</div>)}
     </section>
 
-    <section class="section bg-stone-100">
-      <div class="container grid gap-8 lg:grid-cols-[.82fr_1.18fr]">
-        <div>
-          <p class="eyebrow">Why DOSU Optical</p>
-          <h2 class="mt-3 text-4xl font-black uppercase leading-none tracking-[-0.04em] sm:text-5xl">Premium optical care without the guesswork</h2>
-          <p class="mt-5 text-lg font-semibold leading-8 text-slate-600">A clearer journey from eye examination to frame styling, lens selection, collection, and after-sales support.</p>
-        </div>
-        <div class="grid gap-4 md:grid-cols-3">
-          {reasons.map(([title, desc]) => <article class="card"><h3 class="text-xl font-black">{title}</h3><p class="mt-3 leading-7 text-slate-600">{desc}</p></article>)}
-        </div>
-      </div>
-    </section>
-
-    <section class="section bg-stone-100 pt-6">
-      <div class="container">
-        <div class="accent-squiggle text-center"><p class="eyebrow">Professional Eye Care</p><h2 class="mt-3 text-4xl font-black uppercase tracking-[-0.04em] sm:text-5xl">Start with the right consultation</h2></div>
-        <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((s) => <a class="card hover:-translate-y-1 hover:border-brand-100" href={`/services/${s.slug}`}><h3 class="text-xl font-black">{s.title}</h3><p class="mt-3 leading-7 text-slate-600">{s.desc}</p><span class="mt-5 inline-flex text-sm font-black text-brand-600">Learn more →</span></a>)}
-        </div>
-      </div>
-    </section>
-
     <section class="section bg-stone-100 pt-6">
       <div class="container">
         <div class="accent-squiggle text-center">
@@ -85,12 +48,14 @@ const faqs = [
           <p class="mx-auto mt-4 max-w-xl font-semibold text-slate-600">Find eyewear and lens care tailored to how you work, drive, study, and show up.</p>
         </div>
         <div class="mt-12 grid gap-6 lg:grid-cols-3">
-          {categories.map(([title, desc, theme, ghost]) => (
-            <a href="/brands" class={`group relative min-h-[430px] overflow-hidden rounded-[2rem] p-8 shadow-soft ${theme}`}>
-              <span class="absolute bottom-6 right-6 text-7xl font-black tracking-[-0.08em] opacity-10">{ghost}</span>
-              <h3 class="relative text-3xl font-black tracking-[-0.04em]">{title}</h3>
-              <p class="relative mt-3 max-w-xs font-semibold opacity-75">{desc}</p>
-              <span class="relative mt-7 inline-flex rounded-full bg-slate-950 px-5 py-3 text-xs font-black uppercase text-white transition group-hover:-translate-y-1">Shop now</span>
+          {categories.map(([title, desc, ghost, image]) => (
+            <a href="/brands" class="group relative min-h-[430px] overflow-hidden rounded-[2rem] p-8 text-white shadow-soft">
+              <img src={image} alt={`${title} category preview`} loading="lazy" decoding="async" class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+              <span class="absolute inset-0 bg-gradient-to-b from-slate-950/78 via-slate-950/35 to-slate-950/82"></span>
+              <span class="absolute bottom-6 right-6 text-7xl font-black tracking-[-0.08em] opacity-20">{ghost}</span>
+              <h3 class="relative text-3xl font-black tracking-[-0.04em] drop-shadow">{title}</h3>
+              <p class="relative mt-3 max-w-xs font-semibold leading-7 text-white/90 drop-shadow">{desc}</p>
+              <span class="relative mt-7 inline-flex rounded-full bg-white px-5 py-3 text-xs font-black uppercase text-slate-950 transition group-hover:-translate-y-1 group-hover:bg-brand-500 group-hover:text-white">Shop now</span>
               <div class="absolute bottom-16 left-8 right-8 h-28 rounded-full bg-white/20 blur-2xl"></div>
             </a>
           ))}
@@ -98,42 +63,10 @@ const faqs = [
       </div>
     </section>
 
-    <section class="section overflow-hidden bg-stone-100 pt-6">
-      <div class="container rounded-[3rem] bg-white px-6 py-14 shadow-soft sm:px-10 lg:px-14">
-        <div class="accent-squiggle text-center"><p class="eyebrow">Featured Collections</p><h2 class="mt-3 text-4xl font-black uppercase tracking-[-0.04em] sm:text-5xl">Signature eyewear edit</h2></div>
-        <div class="mt-12 grid items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
-          <div class="orange-panel relative min-h-[360px] overflow-hidden rounded-[2rem] p-7 text-white">
-            <p class="text-lg font-black">Featured this week</p>
-            <div class="absolute inset-x-10 bottom-16 h-28 rounded-full bg-black/35 blur-3xl"></div>
-            <div class="absolute left-1/2 top-1/2 h-40 w-[76%] -translate-x-1/2 -translate-y-1/2 rounded-full border-[18px] border-slate-950/90"></div>
-            <div class="absolute bottom-7 left-7 right-7 flex justify-between text-xs font-black"><span>01</span><span>08</span></div>
-          </div>
-          <div>
-            <div class="relative flex min-h-36 items-center gap-4 overflow-hidden">
-              <span class="absolute -left-12 text-[8rem] font-black uppercase leading-none tracking-[-0.08em] text-slate-100">Focus</span>
-              {collections.map(([name]) => <div class="relative grid h-28 w-28 shrink-0 place-items-center rounded-full bg-stone-100 ring-8 ring-white"><span class="h-12 w-20 rounded-full border-[7px] border-slate-950"></span><span class="sr-only">{name}</span></div>)}
-            </div>
-            <h3 class="mt-8 text-3xl font-black tracking-[-0.04em]">{collections[0][0]}</h3>
-            <p class="mt-2 font-semibold text-slate-600">{collections[0][1]}</p>
-            <p class="mt-5 text-4xl font-black text-slate-950">{collections[0][2]}</p>
-            <a class="btn-primary mt-8" href="/contact">Try in store</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
     <section class="section bg-stone-100 pt-6">
       <div class="container grid gap-8 lg:grid-cols-[.8fr_1.2fr]">
         <div class="rounded-[2rem] bg-white p-8 shadow-soft"><p class="eyebrow">Why Families Trust DOSU</p><h2 class="mt-3 text-4xl font-black uppercase tracking-[-0.04em]">Clear care for parents, children, and daily wearers</h2><p class="mt-4 text-lg font-semibold text-slate-600">Friendly guidance, careful measurements, and eyewear adjustments after collection.</p></div>
         <div class="grid gap-4 md:grid-cols-3">{reviews.map((r) => <blockquote class="rounded-[2rem] bg-white p-6 font-semibold leading-7 shadow-soft">“{r}”</blockquote>)}</div>
-      </div>
-    </section>
-
-    <section class="section bg-stone-100 pt-6">
-      <div class="container">
-        <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><p class="eyebrow">Latest Eye Care Articles</p><h2 class="mt-3 text-4xl font-black uppercase tracking-[-0.04em] sm:text-5xl">Learn before you choose</h2></div><a class="btn-secondary" href="/blog/progressive-lenses-guide">Read articles</a></div>
-        <div class="mt-10 grid gap-5 md:grid-cols-3">{articles.map(([title, desc, href]) => <a class="card hover:-translate-y-1 hover:border-brand-100" href={href}><h3 class="text-xl font-black">{title}</h3><p class="mt-3 leading-7 text-slate-600">{desc}</p><span class="mt-5 inline-flex text-sm font-black text-brand-600">Read guide →</span></a>)}</div>
       </div>
     </section>
 

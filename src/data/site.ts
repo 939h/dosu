@@ -55,6 +55,88 @@ export const megaMenu = [
 ];
 
 
+export const learnTopics = [
+  { slug: 'myopia', title: 'Myopia', desc: 'A simple guide to short-sightedness, why it can change during childhood, and how regular reviews support clearer vision.' },
+  { slug: 'digital-eye-strain', title: 'Digital Eye Strain', desc: 'Practical information for tired, dry, or blurry eyes during screen-heavy work, study, and gaming.' },
+  { slug: 'lens-guide', title: 'Lens Guide', desc: 'Plain-language help for understanding everyday lenses, progressive lenses, coatings, and comfortable fitting choices.' },
+  { slug: 'childrens-vision', title: 'Children’s Vision', desc: 'Simple signs parents can watch for, plus why children need clear comfortable vision for learning and daily confidence.' },
+  { slug: 'eye-health', title: 'Eye Health', desc: 'Easy reminders about eye examinations, common symptoms, healthy habits, and when to seek professional advice.' },
+];
+
+export const learnEducation: Record<string, { sections: { heading: string; body: string }[]; faqs: { question: string; answer: string }[] }> = {
+  myopia: {
+    sections: [
+      { heading: 'What is it?', body: 'Myopia, or short-sightedness, means far objects look blurry while near tasks may still feel clear. It usually happens when light focuses in front of the retina instead of directly on it.' },
+      { heading: 'Who should pay attention?', body: 'Children, teenagers, students, frequent screen users, and people with short-sighted parents should pay attention because myopia can progress during growing years.' },
+      { heading: 'Why does it matter?', body: 'Clear distance vision supports classroom learning, sports, driving, and everyday safety. Higher myopia may also need closer long-term eye health monitoring.' },
+      { heading: 'What can help?', body: 'Regular eye checks, accurate glasses or contact lenses, balanced near work habits, outdoor time, and suitable myopia management options may be discussed after an assessment.' },
+      { heading: 'When to ask for advice?', body: 'Ask for advice if distance vision becomes blurry, a child squints, school board viewing is difficult, headaches appear, or the prescription changes quickly.' },
+    ],
+    faqs: [
+      { question: 'Can glasses make myopia worse?', answer: 'Correctly prescribed glasses do not make myopia worse. They help the eyes see clearly and reduce unnecessary blur.' },
+      { question: 'How often should children with myopia be checked?', answer: 'Review timing depends on age and prescription changes, but children with progressing myopia commonly need regular follow-up.' },
+      { question: 'Is outdoor time useful?', answer: 'Outdoor time is commonly encouraged for children as part of healthy visual habits, alongside sensible breaks from prolonged near work.' },
+    ],
+  },
+  'digital-eye-strain': {
+    sections: [
+      { heading: 'What is it?', body: 'Digital eye strain describes tired, dry, blurry, or uncomfortable eyes linked to prolonged screen use, close working distance, glare, posture, or uncorrected prescription needs.' },
+      { heading: 'Who should pay attention?', body: 'Office workers, students, gamers, designers, drivers using digital dashboards, and anyone using screens for long periods should monitor symptoms.' },
+      { heading: 'Why does it matter?', body: 'Screen discomfort can reduce concentration, reading speed, work comfort, and sleep routines when visual habits and environment are not managed.' },
+      { heading: 'What can help?', body: 'Helpful steps include correct prescription, comfortable screen distance, regular blinking, short breaks, reduced glare, good lighting, and checking for dryness or focusing issues.' },
+      { heading: 'When to ask for advice?', body: 'Seek advice when symptoms persist, vision fluctuates, headaches increase, eyes become red or painful, or screen work feels difficult even after breaks.' },
+    ],
+    faqs: [
+      { question: 'Do blue-control lenses solve all screen strain?', answer: 'Not by themselves. Lens choice can help some people, but prescription, dryness, lighting, posture, and breaks are also important.' },
+      { question: 'Why do my eyes feel dry on screens?', answer: 'People often blink less when concentrating on screens, which can make tears evaporate faster and cause dryness or watering.' },
+      { question: 'Can old glasses cause screen discomfort?', answer: 'Yes. A small prescription change or unsuitable lens design can make computer and near tasks more tiring.' },
+    ],
+  },
+  'lens-guide': {
+    sections: [
+      { heading: 'What is it?', body: 'A lens guide helps match your prescription, frame, work distance, lifestyle, and comfort needs to suitable spectacle lens designs and coatings.' },
+      { heading: 'Who should pay attention?', body: 'Anyone buying new glasses, changing prescription, starting progressives, working long hours on screens, or choosing thinner lenses should understand the basics.' },
+      { heading: 'Why does it matter?', body: 'The right lens design affects clarity, comfort, thickness, weight, glare control, adaptation, and how naturally you move between distance and near tasks.' },
+      { heading: 'What can help?', body: 'Bring your current glasses and describe your daily tasks. Accurate measurements, frame fit, lens index, coatings, and usage guidance all support better results.' },
+      { heading: 'When to ask for advice?', body: 'Ask for advice when lenses feel heavy, vision is narrow, night glare bothers you, reading is difficult, or progressives feel hard to adapt to.' },
+    ],
+    faqs: [
+      { question: 'Are expensive lenses always better?', answer: 'Not always. The best lens is the one that suits your prescription, frame, budget, and daily visual needs.' },
+      { question: 'Do progressive lenses have visible lines?', answer: 'No. Progressive lenses provide distance, intermediate, and near zones without the visible segment line found in some bifocals.' },
+      { question: 'Are coatings important?', answer: 'Coatings can improve glare control, scratch resistance, cleaning, and comfort, especially for daily wear and night driving.' },
+    ],
+  },
+  'childrens-vision': {
+    sections: [
+      { heading: 'What is it?', body: 'Children’s vision covers how clearly and comfortably a child sees for reading, classroom learning, sports, screens, and everyday activities.' },
+      { heading: 'Who should pay attention?', body: 'Parents and teachers should watch children who squint, sit very near screens, avoid reading, lose their place, tilt their head, or complain of headaches.' },
+      { heading: 'Why does it matter?', body: 'Children may think blurry vision is normal. Clear comfortable sight supports learning, coordination, attention, confidence, and social activities.' },
+      { heading: 'What can help?', body: 'An age-appropriate eye check can identify whether glasses, monitoring, visual habit changes, or myopia management discussions are needed.' },
+      { heading: 'When to ask for advice?', body: 'Book a check before school starts, when a teacher notices difficulty, after failed screening, or when a child reports blur, double vision, or eye discomfort.' },
+    ],
+    faqs: [
+      { question: 'Can children tell parents they cannot see clearly?', answer: 'Some can, but many do not realise their vision is different. Behaviour changes can be important clues.' },
+      { question: 'Will wearing glasses weaken a child’s eyes?', answer: 'No. Correct glasses help a child see clearly and do not weaken the eyes.' },
+      { question: 'Should siblings be checked too?', answer: 'It can be useful, especially when there is family history of myopia or other vision concerns.' },
+    ],
+  },
+  'eye-health': {
+    sections: [
+      { heading: 'What is it?', body: 'Eye health refers to the condition of the eyes, vision, and comfort, including symptoms such as blur, redness, dryness, floaters, glare, or pain.' },
+      { heading: 'Who should pay attention?', body: 'Everyone benefits from routine eye checks, especially people with diabetes, high blood pressure, family eye disease history, high prescriptions, or new symptoms.' },
+      { heading: 'Why does it matter?', body: 'Some eye changes develop gradually and may not be obvious at first. Regular checks help identify concerns and guide timely referral when needed.' },
+      { heading: 'What can help?', body: 'Healthy habits include regular eye examinations, UV protection outdoors, safe contact lens hygiene, balanced screen habits, and prompt attention to unusual symptoms.' },
+      { heading: 'When to ask for advice?', body: 'Seek prompt advice for sudden vision loss, eye pain, flashes, new floaters, injury, strong redness, or symptoms that quickly worsen.' },
+    ],
+    faqs: [
+      { question: 'How often should adults have eye checks?', answer: 'Many adults choose yearly checks, but timing can vary based on age, health conditions, prescription, symptoms, and professional advice.' },
+      { question: 'Are sunglasses important?', answer: 'Quality sunglasses help reduce glare and protect the eyes from ultraviolet exposure when outdoors.' },
+      { question: 'Can eye symptoms be linked to general health?', answer: 'Yes. Conditions such as diabetes, blood pressure changes, allergies, and some medications can affect eye comfort or vision.' },
+    ],
+  },
+};
+
+
 export const serviceEducation: Record<string, { sections: { heading: string; body: string }[]; faqs: { question: string; answer: string }[] }> = {
   'eye-examination': {
     sections: [

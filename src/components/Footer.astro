@@ -6,7 +6,10 @@ import { nav, site } from '@/data/site';
     <div class="rounded-[2rem] bg-white p-8 shadow-soft md:p-10">
       <div class="grid gap-10 md:grid-cols-4">
         <div class="md:col-span-2">
-          <h2 class="text-3xl font-black italic tracking-tighter">DOSU<span class="text-brand-600">OPTICAL</span></h2>
+          <a class="inline-flex items-center gap-4 focus:outline-none focus:ring-4 focus:ring-brand-100" href="/" aria-label="DOSU Optical home">
+            <img class="footer-brand-logo" src="/dosu-mark.svg" alt="" loading="lazy" decoding="async" />
+            <span class="text-3xl font-black italic tracking-tighter text-slate-950">DOSU<span class="text-brand-600">OPTICAL</span></span>
+          </a>
           <p class="mt-4 max-w-md text-slate-600">A premium optical store in Taipan USJ for careful eye exams, sharp prescriptions, and eyewear that feels as good as it looks.</p>
           <a class="btn-primary mt-6" href={site.whatsapp}>Book a fitting</a>
         </div>
@@ -16,8 +19,20 @@ import { nav, site } from '@/data/site';
         </div>
         <div>
           <h3 class="font-black text-slate-950">Visit</h3>
-          <address class="mt-4 not-italic text-sm leading-6 text-slate-600">{site.address}<br />{site.phone}</address>
-          <p class="mt-4 text-sm leading-6 text-slate-600">{site.hours.map((h) => <><span>{h}</span><br /></>)}</p>
+          <dl class="mt-4 space-y-4 text-sm leading-6 text-slate-600">
+            <div>
+              <dt class="contact-detail-title">Address</dt>
+              <dd>{site.address}</dd>
+            </div>
+            <div>
+              <dt class="contact-detail-title">Phone</dt>
+              <dd><a class="hover:text-brand-600" href={`tel:${site.phone.replace(/[^+\d]/g, '')}`}>{site.phone}</a></dd>
+            </div>
+            <div>
+              <dt class="contact-detail-title">Business hours</dt>
+              <dd>{site.hours.map((h) => <><span>{h}</span><br /></>)}</dd>
+            </div>
+          </dl>
         </div>
       </div>
       <p class="mt-10 border-t border-slate-100 pt-6 text-sm text-slate-500">© {new Date().getFullYear()} DOSU Optical. Information is educational and does not replace medical diagnosis.</p>

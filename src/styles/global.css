@@ -87,44 +87,34 @@ a { @apply transition-colors; }
     overflow: hidden;
     pointer-events: none;
     background: #000;
-    animation: intro-splash-hide .45s ease 2.15s forwards;
+    animation: intro-splash-hide .4s ease 2.45s forwards;
   }
 
-  .intro-splash__logo {
-    width: min(24vw, 310px);
-    min-width: 220px;
-    height: auto;
-    fill: #fff;
-    opacity: 0;
-    transform: translateY(4px) scale(.98);
-    animation: intro-logo-in .5s ease-out .2s forwards, intro-logo-hold 1.35s linear .7s forwards;
+  .intro-splash__word {
+    position: relative;
+    display: inline-block;
+    color: #3a3a3a;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(3rem, 9vw, 7.5rem);
+    font-weight: 900;
+    line-height: .8;
+    letter-spacing: -.1em;
+    text-transform: uppercase;
   }
 
-  .intro-splash__glyph {
-    transform-box: fill-box;
-    transform-origin: center;
+  .intro-splash__word::after {
+    content: 'DOSU';
+    position: absolute;
+    inset: 0;
+    color: #fff;
+    clip-path: inset(0 0 0 100%);
+    animation: intro-word-sweep 1.35s cubic-bezier(.83, 0, .17, 1) .35s forwards;
   }
-
-  .intro-splash__glyph:nth-child(1) { animation: intro-glyph-flicker .5s steps(2, end) .2s both; }
-  .intro-splash__glyph:nth-child(2) { animation: intro-glyph-flicker .5s steps(2, end) .28s both; }
-  .intro-splash__glyph:nth-child(3) { animation: intro-glyph-flicker .5s steps(2, end) .36s both; }
-  .intro-splash__glyph:nth-child(4) { animation: intro-glyph-flicker .5s steps(2, end) .44s both; }
 }
 
-@keyframes intro-logo-in {
-  0% { opacity: 0; transform: translateY(4px) scale(.98); }
-  100% { opacity: 1; transform: translateY(0) scale(1); }
-}
-
-@keyframes intro-logo-hold {
-  0%, 85% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-@keyframes intro-glyph-flicker {
-  0% { opacity: .25; transform: translateX(-2px); }
-  30% { opacity: 1; transform: translateX(1px); }
-  60%, 100% { opacity: 1; transform: translateX(0); }
+@keyframes intro-word-sweep {
+  0% { clip-path: inset(0 0 0 100%); }
+  100% { clip-path: inset(0 0 0 0); }
 }
 
 @keyframes intro-splash-hide {

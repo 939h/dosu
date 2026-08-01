@@ -107,13 +107,13 @@ a { @apply transition-colors; }
     position: absolute;
     inset: 0;
     color: #fff;
-    clip-path: inset(0 0 0 100%);
+    clip-path: inset(0 100% 0 0);
     animation: intro-word-sweep 1.35s cubic-bezier(.83, 0, .17, 1) .35s forwards;
   }
 }
 
 @keyframes intro-word-sweep {
-  0% { clip-path: inset(0 0 0 100%); }
+  0% { clip-path: inset(0 100% 0 0); }
   100% { clip-path: inset(0 0 0 0); }
 }
 

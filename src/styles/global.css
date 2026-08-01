@@ -62,6 +62,10 @@ a { @apply transition-colors; }
   .site-brand-logo { @apply rounded-full object-contain; }
   .site-brand-logo--header { @apply h-10 w-10 bg-white ring-1 ring-white/20; }
   .site-brand-logo--footer { @apply h-16 w-16 bg-brand-50 ring-1 ring-brand-100; }
+  .group\/mobile > summary::-webkit-details-marker,
+  .group\/mobile details > summary::-webkit-details-marker { display: none; }
+  .group\/mobile > summary,
+  .group\/mobile details > summary { list-style: none; }
   .contact-detail-title { @apply mb-1 text-xs font-medium uppercase tracking-[0.18em] text-slate-950; }
   .social-icon-link { @apply grid h-9 w-9 place-items-center rounded-full bg-slate-950 text-white transition hover:-translate-y-0.5 hover:bg-brand-600 focus:outline-none focus:ring-4 focus:ring-brand-100; }
   .social-icon-link svg { @apply h-4 w-4; }

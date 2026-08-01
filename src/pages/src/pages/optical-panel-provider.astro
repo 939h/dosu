@@ -1,0 +1,66 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Breadcrumbs from '@/components/Breadcrumbs.astro';
+import { site } from '@/data/site';
+
+const panelPartners = ['HealthMetrics', 'MiCare', 'PMCare', 'CompuMed', 'IHP', 'Mednefits'];
+const bringItems = ['IC or MyKad', 'Employee ID', 'Panel card or panel app', 'Employer, insurer, or TPA approval details'];
+---
+<BaseLayout title="Optical Panel Provider" description="DOSU Optical supports cashless optical claims with zero upfront payment for eligible panel members, subject to approval and available claim balance." path="/optical-panel-provider">
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Optical Panel Provider' }]} />
+
+  <section class="section bg-white">
+    <div class="container grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
+      <div>
+        <p class="text-xs font-medium uppercase tracking-[0.22em] text-slate-950">Optical panel provider</p>
+        <h1 class="mt-5 text-4xl font-medium uppercase tracking-[0.05em] text-slate-950 sm:text-5xl">Cashless optical claims with zero upfront payment</h1>
+        <p class="mt-7 text-base leading-8 text-slate-700">DOSU Optical is an official optical panel provider for eligible customers who can claim prescription eyewear through their employer, insurer, or third-party administrator panel.</p>
+        <p class="mt-4 text-base leading-8 text-slate-700">Zero upfront payment is available when your benefit is eligible, your employer or insurer panel approves the claim, and there is sufficient claim balance at the time of purchase.</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a class="inline-flex justify-center rounded-full bg-black px-8 py-3 text-sm font-medium uppercase tracking-wide text-white transition hover:bg-brand-500" href={site.whatsapp}>Check eligibility on WhatsApp</a>
+          <a class="inline-flex justify-center rounded-full border border-slate-200 px-8 py-3 text-sm font-medium uppercase tracking-wide text-slate-950 transition hover:border-brand-500 hover:text-brand-600" href="/contact">Visit DOSU Optical</a>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-[2rem] bg-stone-50 p-3 shadow-soft ring-1 ring-slate-100">
+        <img src="/tpa/optical-panel-provider.png" alt="Official optical panel provider with zero upfront payment" class="h-full w-full rounded-[1.5rem] object-cover" loading="eager" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-stone-50">
+    <div class="container grid gap-6 md:grid-cols-2">
+      <article class="card">
+        <h2 class="text-2xl font-semibold text-slate-950">What is a cashless optical claim?</h2>
+        <p class="mt-4 leading-7 text-slate-700">A cashless optical claim lets approved panel members use their optical benefit for eligible eyewear without paying the claimable amount first and waiting for reimbursement.</p>
+      </article>
+      <article class="card">
+        <h2 class="text-2xl font-semibold text-slate-950">How zero upfront payment works</h2>
+        <p class="mt-4 leading-7 text-slate-700">Our team verifies your panel details, confirms approval and claim balance, then helps you choose eligible frames or lenses within your approved benefit.</p>
+      </article>
+      <article class="card">
+        <h2 class="text-2xl font-semibold text-slate-950">Supported panel/TPA partners</h2>
+        <p class="mt-4 leading-7 text-slate-700">Partners shown in the promotional image include:</p>
+        <ul class="mt-4 grid gap-2 text-sm font-semibold text-slate-700 sm:grid-cols-2">
+          {panelPartners.map((partner) => <li class="rounded-full bg-white px-4 py-2 ring-1 ring-slate-100">{partner}</li>)}
+        </ul>
+      </article>
+      <article class="card">
+        <h2 class="text-2xl font-semibold text-slate-950">What should customers bring?</h2>
+        <ul class="mt-4 space-y-3 leading-7 text-slate-700">
+          {bringItems.map((item) => <li class="flex gap-3"><span class="mt-2 h-2 w-2 rounded-full bg-brand-500"></span><span>{item}</span></li>)}
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section bg-white">
+    <div class="container">
+      <div class="rounded-[2rem] bg-slate-950 p-8 text-center text-white shadow-soft md:p-12">
+        <p class="text-xs font-bold uppercase tracking-[0.22em] text-white/60">Before you visit</p>
+        <h2 class="mx-auto mt-4 max-w-3xl text-3xl font-semibold md:text-4xl">Send us your panel details and our team will help check eligibility first.</h2>
+        <p class="mx-auto mt-5 max-w-3xl leading-8 text-white/70">Final approval depends on your employer, insurer, TPA terms, and available claim balance.</p>
+        <a class="mt-8 inline-flex rounded-full bg-brand-500 px-8 py-3 text-sm font-black uppercase tracking-wide text-white transition hover:bg-white hover:text-slate-950" href={site.whatsapp}>WhatsApp DOSU Optical</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

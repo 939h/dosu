@@ -4,6 +4,7 @@ import SEO from '@/components/SEO.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import WhatsAppChat from '@/components/WhatsAppChat.astro';
+import IntroSplash from '@/components/IntroSplash.astro';
 import { site } from '@/data/site';
 const { title, description, path, jsonLd = [] } = Astro.props;
 const baseSchema = [
@@ -12,4 +13,4 @@ const baseSchema = [
  ...jsonLd,
 ];
 ---
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><SEO title={title} description={description} path={path} jsonLd={baseSchema} /></head><body><Header /><main><slot /></main><Footer /><WhatsAppChat /></body></html>
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><SEO title={title} description={description} path={path} jsonLd={baseSchema} /></head><body><IntroSplash /><Header /><main><slot /></main><Footer /><WhatsAppChat /></body></html>

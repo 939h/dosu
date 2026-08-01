@@ -75,3 +75,141 @@ a { @apply transition-colors; }
   .whatsapp-link { @apply grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(37,211,102,.36)] transition hover:-translate-y-1 hover:bg-[#1ebe5d] focus:outline-none focus:ring-4 focus:ring-[#25D366]/25; }
   .whatsapp-link svg { @apply h-8 w-8; }
 }
+
+@layer components {
+  .intro-splash {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    pointer-events: none;
+    background:
+      radial-gradient(circle at 50% 44%, rgba(255, 102, 0, .4), transparent 18rem),
+      radial-gradient(circle at 25% 18%, rgba(255, 255, 255, .12), transparent 18rem),
+      linear-gradient(135deg, #050505 0%, #101010 48%, #ff3d1f 100%);
+    animation: intro-splash-exit .95s cubic-bezier(.76, 0, .24, 1) 2.25s forwards;
+  }
+
+  .intro-splash__noise {
+    position: absolute;
+    inset: -20%;
+    opacity: .2;
+    background-image:
+      linear-gradient(115deg, transparent 0 46%, rgba(255,255,255,.4) 47% 48%, transparent 49% 100%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,.16) 0 1px, transparent 1px 6px);
+    transform: rotate(-8deg) scale(1.1);
+    animation: intro-noise-shift 1.2s steps(2, end) infinite;
+  }
+
+  .intro-splash__scanline {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent, rgba(255,255,255,.22), transparent);
+    transform: translateY(-120%);
+    animation: intro-scanline 1.45s ease-in-out .25s 2;
+  }
+
+  .intro-splash__rings {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+  }
+
+  .intro-splash__rings span {
+    position: absolute;
+    aspect-ratio: 1;
+    width: min(78vw, 680px);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 999px;
+    transform: scale(.3);
+    opacity: 0;
+    animation: intro-ring-pulse 1.85s cubic-bezier(.16, 1, .3, 1) forwards;
+  }
+
+  .intro-splash__rings span:nth-child(2) { animation-delay: .18s; }
+  .intro-splash__rings span:nth-child(3) { animation-delay: .36s; }
+
+  .intro-splash__content {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .intro-splash__eyebrow,
+  .intro-splash__caption {
+    overflow: hidden;
+    font-size: clamp(.68rem, 1.6vw, .9rem);
+    font-weight: 600;
+    letter-spacing: .34em;
+    color: rgba(255,255,255,.72);
+    animation: intro-detail-pop .7s ease-out .2s both;
+  }
+
+  .intro-splash__caption {
+    color: rgba(255,255,255,.82);
+    animation-delay: 1.1s;
+  }
+
+  .intro-splash__word {
+    display: flex;
+    gap: clamp(.08em, 1.2vw, .18em);
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(4.6rem, 19vw, 17rem);
+    font-weight: 600;
+    line-height: .74;
+    letter-spacing: -.12em;
+    text-shadow: 0 1.5rem 4rem rgba(0,0,0,.35);
+  }
+
+  .intro-splash__word span {
+    display: inline-block;
+    transform-origin: 50% 100%;
+    opacity: 0;
+    filter: blur(16px);
+    transform: translateY(70%) scaleY(1.6) skewX(-10deg);
+    animation: intro-letter-rise .78s cubic-bezier(.16, 1, .3, 1) calc(.4s + var(--intro-letter-index) * .12s) forwards;
+  }
+}
+
+@keyframes intro-letter-rise {
+  0% { opacity: 0; filter: blur(16px); transform: translateY(70%) scaleY(1.6) skewX(-10deg); }
+  72% { opacity: 1; filter: blur(0); transform: translateY(-5%) scaleY(.92) skewX(4deg); }
+  100% { opacity: 1; filter: blur(0); transform: translateY(0) scaleY(1) skewX(0); }
+}
+
+@keyframes intro-ring-pulse {
+  0% { opacity: 0; transform: scale(.3); }
+  22% { opacity: .9; }
+  100% { opacity: 0; transform: scale(1.28); }
+}
+
+@keyframes intro-detail-pop {
+  from { opacity: 0; transform: translateY(1rem); filter: blur(8px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes intro-scanline {
+  to { transform: translateY(120%); }
+}
+
+@keyframes intro-noise-shift {
+  0%, 100% { transform: translate3d(-1%, 0, 0) rotate(-8deg) scale(1.1); }
+  50% { transform: translate3d(1%, -1%, 0) rotate(-8deg) scale(1.1); }
+}
+
+@keyframes intro-splash-exit {
+  0% { opacity: 1; clip-path: inset(0 0 0 0); }
+  100% { opacity: 0; visibility: hidden; clip-path: inset(0 0 100% 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-splash { display: none; }
+}

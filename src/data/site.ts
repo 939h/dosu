@@ -10,7 +10,7 @@ export const site = {
 };
 
 export const nav = [
-  ['Home','/'],['About','/about'],['Services','/services/eye-examination'],['Brands','/brands'],['Learn','/learn/myopia'],['Blog','/blog/progressive-lenses-guide'],['FAQ','/faq'],['Contact','/contact']
+  ['Home','/'],['About','/about'],['Services','/services/eye-examination'],['Brands','/brands'],['Panel Claims','/optical-panel-provider'],['Learn','/learn/myopia'],['Blog','/blog/progressive-lenses-guide'],['FAQ','/faq'],['Contact','/contact']
 ];
 
 export const services = [

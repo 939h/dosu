@@ -1,18 +1,25 @@
 <div class="intro-splash" aria-hidden="true">
-  <div class="intro-splash__noise"></div>
-  <div class="intro-splash__scanline"></div>
-  <div class="intro-splash__rings">
-    <span></span>
-    <span></span>
-    <span></span>
+  <div class="intro-splash__grid"></div>
+  <div class="intro-splash__wipe intro-splash__wipe--top"></div>
+  <div class="intro-splash__wipe intro-splash__wipe--bottom"></div>
+  <div class="intro-splash__frame">
+    <span>DOSU</span>
+    <span>OPTICAL</span>
+    <span>EST. TAIPAN USJ</span>
   </div>
-  <div class="intro-splash__content">
-    <p class="intro-splash__eyebrow">Taipan USJ Optical</p>
-    <div class="intro-splash__word" aria-label="DOSU">
-      {'DOSU'.split('').map((letter, index) => (
-        <span style={`--intro-letter-index:${index}`}>{letter}</span>
-      ))}
-    </div>
-    <p class="intro-splash__caption">see sharper / look iconic</p>
+  <div class="intro-splash__word" aria-label="DOSU">
+    {'DOSU'.split('').map((letter, index) => (
+      <span style={`--intro-letter-index:${index}`}>{letter}</span>
+    ))}
+  </div>
+  <div class="intro-splash__ticker">
+    <span>DOSU</span>
+    <span>SEE SHARPER</span>
+    <span>LOOK ICONIC</span>
+    <span>DOSU</span>
+  </div>
+  <div class="intro-splash__progress">
+    <span>LOADING</span>
+    <span>100%</span>
   </div>
 </div>

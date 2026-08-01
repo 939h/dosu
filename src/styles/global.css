@@ -11,13 +11,13 @@ a { @apply transition-colors; }
 .container { @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8; }
 .section { @apply py-16 sm:py-24; }
 .eyebrow { @apply text-xs font-black uppercase tracking-[0.22em] text-brand-600; }
-.btn-primary { @apply inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-slate-800 foc[...]
-.btn-secondary { @apply inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-sm transition hover:-translate-y-0.[...]
+.btn-primary { @apply inline-flex items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-black text-white shadow-soft transition hover:-translate-y-0.5 hover:bg-slate-800 focus:outline-none focus:ring-4 focus:ring-brand-100 active:translate-y-0; }
+.btn-secondary { @apply inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-6 py-3 text-sm font-black text-slate-950 shadow-sm transition hover:-translate-y-0.5 hover:border-brand-500 hover:text-brand-600 focus:outline-none focus:ring-4 focus:ring-brand-100 active:translate-y-0; }
 .card { @apply rounded-[2rem] border border-white/70 bg-white p-6 shadow-soft transition duration-300; }
 .design-shell { @apply mx-auto max-w-[1500px] overflow-hidden shadow-[0_30px_90px_rgba(15,23,42,.18)]; background-color: var(--site-page-bg); }
 .orange-panel { background: radial-gradient(circle at 50% 20%, rgba(255,255,255,.28), transparent 28%), linear-gradient(135deg, #ff3d1f 0%, #ff7a00 52%, #ff4d00 100%); }
 .lens-glow { background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.9), rgba(255,255,255,.35) 36%, rgba(255,122,0,.14) 37%, transparent 62%); }
-.accent-squiggle::after { content: ''; display: block; width: 44px; height: 8px; margin: 18px auto 0; border-radius: 999px; background: linear-gradient(90deg, #ff3d1f 0 30%, transparent 30% 36%, #[...]
+.accent-squiggle::after { content: ''; display: block; width: 44px; height: 8px; margin: 18px auto 0; border-radius: 999px; background: linear-gradient(90deg, #ff3d1f 0 30%, transparent 30% 36%, #ff7a00 36% 64%, transparent 64% 70%, #ff3d1f 70%); }
 @media (prefers-reduced-motion: no-preference) {
   .float-slow { animation: float-slow 6s ease-in-out infinite; }
   .reveal-up { animation: reveal-up .7s ease-out both; }
@@ -67,12 +67,12 @@ a { @apply transition-colors; }
   .group\/mobile > summary,
   .group\/mobile details > summary { list-style: none; }
   .contact-detail-title { @apply mb-1 text-xs font-medium uppercase tracking-[0.18em] text-slate-950; }
-  .social-icon-link { @apply grid h-9 w-9 place-items-center rounded-full bg-slate-950 text-white transition hover:-translate-y-0.5 hover:bg-brand-600 focus:outline-none focus:ring-4 focus:ring-br[...]
+  .social-icon-link { @apply grid h-9 w-9 place-items-center rounded-full bg-slate-950 text-white transition hover:-translate-y-0.5 hover:bg-brand-600 focus:outline-none focus:ring-4 focus:ring-brand-100; }
   .social-icon-link svg { @apply h-4 w-4; }
   .whatsapp-chat { @apply fixed bottom-5 right-5 z-[60] flex flex-col items-end gap-4; }
   .whatsapp-bubble { @apply relative max-w-[280px] rounded-xl border border-slate-200 bg-white px-5 py-4 text-sm text-slate-700 shadow-[0_8px_28px_rgba(15,23,42,.18)]; }
   .whatsapp-close { @apply absolute right-3 top-2 text-xl leading-none text-slate-300 transition hover:text-slate-500; }
-  .whatsapp-link { @apply grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(37,211,102,.36)] transition hover:-translate-y-1 hover:bg-[#1ebe5d] focus:o[...]
+  .whatsapp-link { @apply grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(37,211,102,.36)] transition hover:-translate-y-1 hover:bg-[#1ebe5d] focus:outline-none focus:ring-4 focus:ring-[#25D366]/25; }
   .whatsapp-link svg { @apply h-8 w-8; }
 }
 
@@ -107,13 +107,13 @@ a { @apply transition-colors; }
     position: absolute;
     inset: 0;
     color: #fff;
-    clip-path: inset(0 100% 0 0);
+    clip-path: inset(0 0 0 100%);
     animation: intro-word-sweep 1.35s cubic-bezier(.83, 0, .17, 1) .35s forwards;
   }
 }
 
 @keyframes intro-word-sweep {
-  0% { clip-path: inset(0 100% 0 0); }
+  0% { clip-path: inset(0 0 0 100%); }
   100% { clip-path: inset(0 0 0 0); }
 }
 

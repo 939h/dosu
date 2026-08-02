@@ -13,4 +13,21 @@ const baseSchema = [
  ...jsonLd,
 ];
 ---
-<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><SEO title={title} description={description} path={path} jsonLd={baseSchema} /></head><body><IntroSplash /><Header /><main><slot /></main><Footer /><WhatsAppChat /></body></html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <SEO title={title} description={description} path={path} jsonLd={baseSchema} />
+  </head>
+  <body>
+    {path === '/' ? <IntroSplash /> : null}
+    <Header />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+    <WhatsAppChat />
+  </body>
+</html>

@@ -1,3 +1,31 @@
-<div class="intro-splash" aria-hidden="true">
+<div class="intro-splash" id="intro-splash" aria-hidden="true">
   <span class="intro-splash__word">DOSU</span>
 </div>
+
+<script type="module">
+  // Show this splash only on the first visit in the browser session.
+  // Uses sessionStorage so navigating between pages in the same tab won't re-show it.
+  if (typeof window !== 'undefined') {
+    const key = 'dosu_splash_shown';
+    const el = document.getElementById('intro-splash');
+    try {
+      const shown = sessionStorage.getItem(key);
+      if (shown) {
+        // hide immediately to avoid a flash
+        if (el) el.style.display = 'none';
+      } else {
+        sessionStorage.setItem(key, '1');
+        // Remove the splash from the DOM after animations complete to free up layout.
+        // Timing: intro-word-sweep ~1.35s starting at .35s and the container hides at ~2.45s+. Use 3000ms to be safe.
+        const removeAfterMs = 3000;
+        setTimeout(() => {
+          if (el) el.remove();
+        }, removeAfterMs);
+      }
+    } catch (err) {
+      // If storage is not available, fail open (show splash) but still remove after a timeout.
+      const removeAfterMs = 3000;
+      setTimeout(() => { if (el) el.remove(); }, removeAfterMs);
+    }
+  }
+</script>

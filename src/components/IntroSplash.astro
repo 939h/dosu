@@ -1,16 +1,75 @@
-<div class="intro-splash" id="intro-splash" aria-hidden="true">
-  <span class="intro-splash__word">DOSU</span>
-</div>
+<div id="intro-splash-root" aria-hidden="true"></div>
 
 <script type="module">
-  // Always show the splash when the homepage is rendered.
-  // Remove the element after the animation completes so navigating away doesn't flash it.
-  if (typeof window !== 'undefined') {
-    const el = document.getElementById('intro-splash');
-    // Timing: intro-word-sweep ~1.35s starting at .35s and the container hides at ~2.45s+. Use 3000ms to be safe.
-    const removeAfterMs = 3000;
+  // Config: match your animation timing (safe margin)
+  const SPLASH_DURATION_MS = 3000;
+
+  // Build the splash element (DOM only) so we can insert it repeatedly
+  function createSplashEl() {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'intro-splash';
+    wrapper.setAttribute('aria-hidden', 'true');
+
+    const word = document.createElement('span');
+    word.className = 'intro-splash__word';
+    word.textContent = 'DOSU';
+
+    wrapper.appendChild(word);
+    return wrapper;
+  }
+
+  // Insert splash into the root container, then remove after the duration
+  function showSplashOnce() {
+    const root = document.getElementById('intro-splash-root');
+    if (!root) return;
+
+    // If a splash is already present, don't add another
+    if (root.querySelector('.intro-splash')) return;
+
+    const splash = createSplashEl();
+    root.appendChild(splash);
+
+    // Remove after animation completes
     setTimeout(() => {
-      if (el) el.remove();
-    }, removeAfterMs);
+      splash.remove();
+    }, SPLASH_DURATION_MS);
+  }
+
+  // Detect SPA-like navigation: dispatch a custom event when history API is used
+  function enableHistoryEventPatching() {
+    const wrap = (type) => {
+      const orig = history[type];
+      return function(...args) {
+        const result = orig.apply(this, args);
+        window.dispatchEvent(new Event(type.toLowerCase()));
+        window.dispatchEvent(new Event('app:navigation'));
+        return result;
+      };
+    };
+    history.pushState = wrap('pushState');
+    history.replaceState = wrap('replaceState');
+    // popstate already fires naturally
+  }
+
+  // Show on initial load if on home
+  if (typeof window !== 'undefined') {
+    enableHistoryEventPatching();
+
+    // Show splash on first load if we're on the homepage
+    if (location.pathname === '/') {
+      showSplashOnce();
+    }
+
+    // If the app navigates back to '/', show the splash again
+    const onNav = () => {
+      if (location.pathname === '/') {
+        showSplashOnce();
+      }
+    };
+
+    window.addEventListener('popstate', onNav);
+    window.addEventListener('pushstate', onNav);     // some browsers/events
+    window.addEventListener('replacestate', onNav);  // some browsers/events
+    window.addEventListener('app:navigation', onNav); // our custom synthetic event
   }
 </script>

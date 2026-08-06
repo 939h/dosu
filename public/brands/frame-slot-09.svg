@@ -1,7 +1,101 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="220" viewBox="0 0 600 220" role="img" aria-labelledby="title desc">
-  <title id="title">Brand Slot 9</title>
-  <desc id="desc">Placeholder slot for a future frame and sunglasses brand logo.</desc>
-  <rect x="16" y="16" width="568" height="188" rx="28" fill="#fff" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="16 14"/>
-  <text x="300" y="100" fill="#475569" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="6" text-anchor="middle">BRAND SLOT</text>
-  <text x="300" y="145" fill="#94a3b8" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="4" text-anchor="middle">9</text>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 612 792" style="enable-background:new 0 0 612 792;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+</style>
+<image style="overflow:visible;" width="447" height="447" xlink:href="data:image/png;base64,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
+/k/9F/DrliPDPfZ+AAAAAElFTkSuQmCC" transform="matrix(1 0 0 1 83 172)">
+</image>
+<rect x="83" y="172" class="st0" width="447" height="447"/>
 </svg>

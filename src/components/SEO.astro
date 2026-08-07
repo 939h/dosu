@@ -1,6 +1,6 @@
 ---
 import { site } from '@/data/site';
-const { title, description, path = '/', image = '/og.svg', type = 'website', jsonLd = [] } = Astro.props;
+const { title, description, path = '/', image = '/dosu-logo-512.png', type = 'website', jsonLd = [] } = Astro.props;
 const canonical = new URL(path, site.url).toString();
 const fullTitle = title === site.name ? title : `${title} | ${site.name}`;
 const schemas = Array.isArray(jsonLd) ? jsonLd : [jsonLd];

@@ -18,6 +18,10 @@ const baseSchema = [
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <SEO title={title} description={description} path={path} jsonLd={baseSchema} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#111827">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
   </head>
   <body>
     {path === '/' ? <IntroSplash /> : null}

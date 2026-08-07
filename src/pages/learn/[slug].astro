@@ -9,18 +9,19 @@ export function getStaticPaths() {
 }
 
 const { topic } = Astro.props;
-const education = learnEducation[topic.slug];
+// make education lookup robust in case a topic has no entry in learnEducation
+const education = learnEducation[topic.slug] ?? { sections: [], faqs: [] };
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: education.faqs.map(({ question, answer }) => ({
+  mainEntity: (education.faqs ?? []).map(({ question, answer }) => ({
     '@type': 'Question',
     name: question,
     acceptedAnswer: { '@type': 'Answer', text: answer },
   })),
 };
 ---
-<BaseLayout title={`${topic.title} Learning Centre`} description={`${topic.desc} Simple DOSU Optical guide covering what it means, why it matters, when to ask for advice, and practical next steps.`} path={`/learn/${topic.slug}`} jsonLd={[jsonLd]}>
+<BaseLayout title={`${topic.title} Learning Centre`} description={`${topic.desc} Simple DOSU Optical guide covering what it means, why it matters, when to ask for advice, and practical next steps.`} path={`/learn/${topic.slug}`} jsonLd={jsonLd}>
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Learn', href: '/learn/myopia' }, { label: topic.title }]} />
   <section class="section">
     <div class="container grid gap-10 lg:grid-cols-[.78fr_.22fr]">
@@ -36,7 +37,7 @@ const jsonLd = {
         <nav class="rounded-[2rem] bg-white p-5 shadow-soft" aria-label={`${topic.title} page sections`}>
           <p class="px-3 text-xs font-black uppercase tracking-[0.22em] text-brand-600">On this page</p>
           <div class="mt-4 grid gap-2">
-            {education.sections.map((section) => <a class="rounded-full px-3 py-2 text-sm font-black text-slate-600 hover:bg-brand-100 hover:text-brand-600" href={`#${section.heading.toLowerCase().replaceAll(' ', '-').replace('?', '')}`}>{section.heading}</a>)}
+            {(education.sections ?? []).map((section) => <a class="rounded-full px-3 py-2 text-sm font-black text-slate-600 hover:bg-brand-100 hover:text-brand-600" href={`#${section.heading.toLowerCase().replace(/\s+/g, '-')}`}>{section.heading}</a>)}
             <a class="rounded-full px-3 py-2 text-sm font-black text-slate-600 hover:bg-brand-100 hover:text-brand-600" href="#faq">FAQ</a>
           </div>
         </nav>

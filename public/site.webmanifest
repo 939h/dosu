@@ -1,0 +1,15 @@
+{
+  "name": "DOSU Optical",
+  "short_name": "DOSU",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#111827",
+  "background_color": "#ffffff"
+}

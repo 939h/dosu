@@ -6,11 +6,10 @@ import Footer from '@/components/Footer.astro';
 import WhatsAppChat from '@/components/WhatsAppChat.astro';
 import IntroSplash from '@/components/IntroSplash.astro';
 import { site } from '@/data/site';
-const { title, description, path, jsonLd } = Astro.props;
-// Ensure jsonLd is always an array so spreading it is safe
+const { title, description, path, jsonLd = [] } = Astro.props;
 const schemas = Array.isArray(jsonLd) ? jsonLd : (jsonLd ? [jsonLd] : []);
 const baseSchema = [
- { '@context':'https://schema.org','@type':'Organization', name: site.name, url: site.url, telephone: site.phone, address: site.address, logo: new URL('/dosu-logo-512.png', site.url).toString(), image: new URL('/dosu-logo-512.png', site.url).toString() },
+ { '@context':'https://schema.org','@type':'Organization', name: site.name, url: site.url, telephone: site.phone, address: site.address, logo: new URL('/dosu-mark1.svg', site.url).toString(), image: new URL('/dosu-mark1.svg', site.url).toString() },
  { '@context':'https://schema.org','@type':'WebSite', name: site.name, url: site.url },
  ...schemas,
 ];
